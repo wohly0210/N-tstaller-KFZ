@@ -28,7 +28,8 @@ async function scrapeWillhaben() {
 
     // Navigate to dealer page
     console.log('🌐 Navigating to Willhaben...');
-    await page.goto(DEALER_URL, { waitUntil: 'networkidle', timeout: TIMEOUT });
+    await page.goto(DEALER_URL, { waitUntil: 'domcontentloaded', timeout: TIMEOUT });
+    await page.waitForTimeout(3000);
 
     // Handle cookie consent
     try {
@@ -251,7 +252,7 @@ async function scrapeWillhaben() {
       if (!v.image && v.link) {
         console.log(`🔍 No image for "${v.title}" – opening detail page...`);
         try {
-          await page.goto(v.link, { waitUntil: 'networkidle', timeout: TIMEOUT });
+          await page.goto(v.link, { waitUntil: 'domcontentloaded', timeout: TIMEOUT });
           await page.waitForTimeout(2000);
 
           // Extract the main image from the detail page
