@@ -246,62 +246,89 @@ async function scrapeWillhaben() {
       return results;
     }, MAX_VEHICLES);
 
-    // If images are missing from the card view, try clicking into each listing
+    // If any important data is missing from the card view, try clicking into each listing
     for (let i = 0; i < vehicles.length; i++) {
       const v = vehicles[i];
-      if (!v.image && v.link) {
-        console.log(`🔍 No image for "${v.title}" – opening detail page...`);
+      if ((!v.image || !v.year || !v.mileage || !v.power) && v.link) {
+        console.log(`🔍 Missing data for "${v.title}" – opening detail page...`);
         try {
           await page.goto(v.link, { waitUntil: 'domcontentloaded', timeout: TIMEOUT });
           await page.waitForTimeout(2000);
 
-          // Extract the main image from the detail page
-          const detailImage = await page.evaluate(() => {
-            const imgSelectors = [
-              'img[src*="cache.willhaben.at"]',
-              'img[src*="mmo"]',
-              '[data-testid="image-gallery"] img',
-              '.gallery img',
-              'picture source[srcset*="cache.willhaben"]',
-            ];
-            for (const sel of imgSelectors) {
-              const img = document.querySelector(sel);
-              if (img) {
-                const src = img.src || img.dataset?.src || '';
-                if (src.startsWith('http') && !src.includes('svg') && !src.includes('placeholder')) {
-                  return src;
-                }
-                const srcset = img.srcset || '';
-                if (srcset) {
-                  const parts = srcset.split(',').map(s => s.trim().split(' ')[0]);
-                  const best = parts.find(s => s.includes('cache.willhaben')) || parts[parts.length - 1];
-                  if (best && best.startsWith('http')) return best;
+          // Extract the main image from the detail page if missing
+          if (!v.image) {
+            const detailImage = await page.evaluate(() => {
+              const imgSelectors = [
+                'img[src*="cache.willhaben.at"]',
+                'img[src*="mmo"]',
+                '[data-testid="image-gallery"] img',
+                '.gallery img',
+                'picture source[srcset*="cache.willhaben"]',
+              ];
+              for (const sel of imgSelectors) {
+                const img = document.querySelector(sel);
+                if (img) {
+                  const src = img.src || img.dataset?.src || '';
+                  if (src.startsWith('http') && !src.includes('svg') && !src.includes('placeholder')) {
+                    return src;
+                  }
+                  const srcset = img.srcset || '';
+                  if (srcset) {
+                    const parts = srcset.split(',').map(s => s.trim().split(' ')[0]);
+                    const best = parts.find(s => s.includes('cache.willhaben')) || parts[parts.length - 1];
+                    if (best && best.startsWith('http')) return best;
+                  }
                 }
               }
-            }
-            return '';
-          });
+              return '';
+            });
 
-          if (detailImage) {
-            vehicles[i].image = detailImage;
-            console.log(`   ✅ Found image: ${detailImage.substring(0, 80)}...`);
+            if (detailImage) {
+              vehicles[i].image = detailImage;
+              console.log(`   ✅ Found image: ${detailImage.substring(0, 80)}...`);
+            }
           }
 
-          // Also extract any missing data from detail page
-          if (!v.power || !v.transmission) {
-            const detailData = await page.evaluate(() => {
-              const text = document.body.innerText;
-              let power = '', transmission = '';
-              const psMatch = text.match(/(\d+)\s*PS/i);
-              const kwMatch = text.match(/(\d+)\s*kW/i);
-              if (psMatch) power = psMatch[1] + ' PS';
-              else if (kwMatch) power = Math.round(parseInt(kwMatch[1]) * 1.36) + ' PS';
-              if (/DSG|automatik|automatic|tiptronic/i.test(text)) transmission = 'Automatik';
-              else if (/schalt|manuell|manual/i.test(text)) transmission = 'Schaltgetriebe';
-              return { power, transmission };
-            });
-            if (!vehicles[i].power && detailData.power) vehicles[i].power = detailData.power;
-            if (!vehicles[i].transmission && detailData.transmission) vehicles[i].transmission = detailData.transmission;
+          // Extract missing text data from detail page
+          const detailData = await page.evaluate(() => {
+            const text = document.body.innerText;
+            let power = '', transmission = '', year = '', mileage = '';
+            
+            // Power
+            const psMatch = text.match(/(\d+)\s*PS/i);
+            const kwMatch = text.match(/(\d+)\s*kW/i);
+            if (psMatch) power = psMatch[1] + ' PS';
+            else if (kwMatch) power = Math.round(parseInt(kwMatch[1]) * 1.36) + ' PS';
+            
+            // Transmission
+            if (/DSG|automatik|automatic|tiptronic/i.test(text)) transmission = 'Automatik';
+            else if (/schalt|manuell|manual/i.test(text)) transmission = 'Schaltgetriebe';
+            
+            // Year
+            const yearMatch = text.match(/(?:EZ|Erstzulassung|Baujahr)[:\s\n]*(\d{1,2}\/)?(\d{4})/i);
+            if (yearMatch) year = yearMatch[2];
+            else {
+              // Try to find a standalone year like 2017, 2018, etc. usually listed near km
+              const simpleYearMatch = text.match(/\b(20[12]\d)\b/);
+              if (simpleYearMatch) year = simpleYearMatch[1];
+            }
+            
+            // Mileage
+            const kmMatch = text.match(/(?:Kilometerstand|Laufleistung)[:\s\n]*([\d.,]+)/i) || text.match(/([\d.,]+)\s*km/i);
+            if (kmMatch) mileage = kmMatch[1].replace(/[.,]/g, '') + ' km';
+            
+            return { power, transmission, year, mileage };
+          });
+
+          if (!vehicles[i].power && detailData.power) vehicles[i].power = detailData.power;
+          if (!vehicles[i].transmission && detailData.transmission) vehicles[i].transmission = detailData.transmission;
+          if (!vehicles[i].year && detailData.year) vehicles[i].year = detailData.year;
+          if (!vehicles[i].mileage && detailData.mileage) {
+            // Format mileage nicely (e.g. 108100 km -> 108.100 km)
+            const numStr = detailData.mileage.replace(/\D/g, '');
+            if (numStr) {
+               vehicles[i].mileage = parseInt(numStr).toLocaleString('de-AT') + ' km';
+            }
           }
         } catch (err) {
           console.log(`   ⚠️ Could not load detail page: ${err.message}`);
