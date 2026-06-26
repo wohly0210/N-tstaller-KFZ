@@ -345,6 +345,41 @@ async function scrapeWillhaben() {
       console.log(`      Link: ${v.link || '❌ NONE'}`);
     });
 
+    // ==========================================
+    // DOWNLOAD IMAGES LOCALLY
+    // ==========================================
+    console.log('\n🖼️ Downloading images to avoid hotlink protection...');
+    const imgDir = path.join(__dirname, '..', 'assets', 'vehicles');
+    if (!fs.existsSync(imgDir)) {
+      fs.mkdirSync(imgDir, { recursive: true });
+    }
+
+    for (let i = 0; i < vehicles.length; i++) {
+      if (vehicles[i].image) {
+        try {
+          const imgPath = path.join(imgDir, `car-${i + 1}.jpg`);
+          // Use Playwright's request context to mimic the browser request (bypasses 403)
+          const response = await context.request.get(vehicles[i].image, {
+            headers: {
+              'Referer': DEALER_URL,
+              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
+            }
+          });
+          
+          if (response.ok()) {
+            const buffer = await response.body();
+            fs.writeFileSync(imgPath, buffer);
+            vehicles[i].localImage = `assets/vehicles/car-${i + 1}.jpg`;
+            console.log(`   ✅ Downloaded: car-${i + 1}.jpg`);
+          } else {
+            console.log(`   ⚠️ Failed to download image for car ${i + 1}: HTTP ${response.status()}`);
+          }
+        } catch (err) {
+          console.log(`   ⚠️ Error downloading image for car ${i + 1}: ${err.message}`);
+        }
+      }
+    }
+
     if (vehicles.length === 0) {
       console.error('❌ No vehicles found! Page structure may have changed.');
       console.log('📸 Saving debug screenshot...');
