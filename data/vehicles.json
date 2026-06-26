@@ -1,0 +1,39 @@
+{
+  "scraped_at": "2026-06-26T06:10:22.131Z",
+  "dealer_url": "https://www.willhaben.at/iad/haendler/noetstaller-autos-kfz-ersatzteile/auto?orgId=1004316",
+  "vehicles": [
+    {
+      "title": "AUTO & MOTOR",
+      "price": "Preis auf Anfrage",
+      "year": "",
+      "mileage": "",
+      "fuel": "Diesel",
+      "transmission": "",
+      "power": "",
+      "link": "https://www.willhaben.at/iad/gebrauchtwagen/",
+      "image": ""
+    },
+    {
+      "title": "Auto & Motor",
+      "price": "Preis auf Anfrage",
+      "year": "",
+      "mileage": "",
+      "fuel": "Diesel",
+      "transmission": "",
+      "power": "",
+      "link": "https://www.willhaben.at/iad/gebrauchtwagen/",
+      "image": ""
+    },
+    {
+      "title": "Seat Tarraco 2,0 TDI Xcellence DSG 4Drive",
+      "price": "€ 29.500",
+      "year": "",
+      "mileage": "",
+      "fuel": "Diesel",
+      "transmission": "Automatik",
+      "power": "",
+      "link": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/seat-tarraco-2-0-tdi-xcellence-dsg-4drive-1901866594/",
+      "image": "https://cache.willhaben.at/mmo/4/190/186/6594_1016389964_hoved.jpg"
+    }
+  ]
+}
