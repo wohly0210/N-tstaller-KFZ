@@ -1,6 +1,9 @@
 name: Update Willhaben Vehicles
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     # Runs daily at 22:00 UTC = 00:00 CET (Mitternacht österreichische Zeit)
     - cron: '0 22 * * *'

@@ -75,9 +75,9 @@ async function scrapeWillhaben() {
         }
       }
 
-      // Broader fallback: find links to individual car listings
+      // Broader fallback: find links to individual car listings (listings contain '/d/' in the URL)
       if (cards.length === 0) {
-        const allLinks = Array.from(document.querySelectorAll('a[href*="/iad/gebrauchtwagen/"], a[href*="/iad/auto/"]'));
+        const allLinks = Array.from(document.querySelectorAll('a[href*="/iad/gebrauchtwagen/d/"], a[href*="/iad/auto/d/"]'));
         const seenHrefs = new Set();
         for (const link of allLinks) {
           const href = link.href;
