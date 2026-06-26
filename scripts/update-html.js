@@ -39,15 +39,15 @@ function generateVehicleCard(vehicle, index) {
     const cacheBuster = imageSrc.startsWith('assets/') ? `?v=${Date.now()}` : '';
     const finalSrc = imageSrc + cacheBuster;
     
-    imageHtml = `                    <div class="h-48 overflow-hidden relative bg-gradient-to-br from-slate-100 to-slate-200">
-                        <img src="${finalSrc}" alt="${vehicle.title}" class="w-full h-full object-cover object-center" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">
+    imageHtml = `                    <div class="aspect-[4/3] overflow-hidden relative bg-gradient-to-br from-slate-100 to-slate-200">
+                        <img src="${finalSrc}" alt="${vehicle.title}" class="w-full h-full object-cover object-[center_60%]" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">
                         <div class="absolute inset-0 flex items-center justify-center -z-10">
                             <svg class="w-16 h-16 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8 17a2 2 0 11-4 0 2 2 0 014 0zM20 17a2 2 0 11-4 0 2 2 0 014 0zM2 11l2-5h7l2 5M2 11h17m-17 0v5a1 1 0 001 1h1m15-6h1a2 2 0 012 2v3a1 1 0 01-1 1h-1"/></svg>
                         </div>
                         <span class="absolute top-3 right-3 bg-gold text-slate-900 text-xs font-bold px-3 py-1 rounded-full z-10">${badge}</span>
                     </div>`;
   } else {
-    imageHtml = `                    <div class="vehicle-img h-48 flex items-center justify-center relative">
+    imageHtml = `                    <div class="vehicle-img aspect-[4/3] flex items-center justify-center relative">
                         <svg class="w-16 h-16 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8 17a2 2 0 11-4 0 2 2 0 014 0zM20 17a2 2 0 11-4 0 2 2 0 014 0zM2 11l2-5h7l2 5M2 11h17m-17 0v5a1 1 0 001 1h1m15-6h1a2 2 0 012 2v3a1 1 0 01-1 1h-1"/></svg>
                         <span class="absolute top-3 right-3 bg-gold text-slate-900 text-xs font-bold px-3 py-1 rounded-full">${badge}</span>
                     </div>`;
