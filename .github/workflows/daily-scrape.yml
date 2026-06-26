@@ -53,11 +53,12 @@ jobs:
             echo "✅ Changes pushed – Vercel will auto-deploy"
           fi
 
-      - name: 📸 Upload debug artifacts on failure
-        if: failure()
+      - name: 📸 Upload scraper artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: debug-scraper
+          name: scraper-output
           path: data/
           if-no-files-found: ignore
           retention-days: 7
+
