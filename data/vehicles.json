@@ -1,37 +1,37 @@
 {
-  "scraped_at": "2026-06-26T07:28:56.201Z",
+  "scraped_at": "2026-06-26T07:32:13.886Z",
   "dealer_url": "https://www.willhaben.at/iad/haendler/noetstaller-autos-kfz-ersatzteile/auto?orgId=1004316",
   "vehicles": [
     {
       "title": "Seat Tarraco 2,0 TDI Xcellence DSG 4Drive",
       "price": "€ 29.500",
-      "year": "",
-      "mileage": "",
+      "year": "2019",
+      "mileage": "69 690 km",
       "fuel": "Diesel",
       "transmission": "Automatik",
-      "power": "",
+      "power": "150 PS",
       "link": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/seat-tarraco-2-0-tdi-xcellence-dsg-4drive-1901866594/",
       "image": "https://cache.willhaben.at/mmo/4/190/186/6594_1016389964_hoved.jpg"
     },
     {
       "title": "VW Passat Variant Business 2,0 SCR TDI DSG",
       "price": "€ 18.000",
-      "year": "",
-      "mileage": "",
+      "year": "2020",
+      "mileage": "108 100 km",
       "fuel": "Diesel",
       "transmission": "Automatik",
-      "power": "",
+      "power": "150 PS",
       "link": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/vw-passat-variant-business-2-0-scr-tdi-dsg-1195366454/",
       "image": "https://cache.willhaben.at/mmo/4/119/536/6454_-2067669293_hoved.jpg"
     },
     {
       "title": "VW Multivan Edition 2,0 TDI 4Motion DSG (VERKAUFT)",
       "price": "€ 37.900",
-      "year": "",
-      "mileage": "",
+      "year": "2017",
+      "mileage": "161 546 km",
       "fuel": "Diesel",
       "transmission": "Automatik",
-      "power": "",
+      "power": "204 PS",
       "link": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/vw-multivan-edition-2-0-tdi-4motion-dsg-verkauft-1751330063/",
       "image": "https://cache.willhaben.at/mmo/3/175/133/0063_-1393368705_hoved.jpg"
     }
