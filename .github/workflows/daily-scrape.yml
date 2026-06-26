@@ -21,11 +21,10 @@ jobs:
       - name: 🟢 Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: '22'
 
       - name: 📦 Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: 🎭 Install Playwright Chromium
         run: npx playwright install --with-deps chromium
@@ -59,7 +58,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: debug-scraper
-          path: |
-            data/debug-screenshot.png
-            data/debug-page.html
+          path: data/
+          if-no-files-found: ignore
           retention-days: 7
