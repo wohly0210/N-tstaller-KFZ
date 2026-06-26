@@ -1,0 +1,13 @@
+{
+  "name": "car-webside",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NÖTSTALLER AUTOS & KFZ-Teile – Onepager with automated Willhaben sync",
+  "scripts": {
+    "scrape": "node scripts/scrape-willhaben.js",
+    "update": "node scripts/update-html.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.52.0"
+  }
+}

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NÖTSTALLER AUTOS & KFZ-Teile | Premium Autos, Reifen & Ersatzteile</title>
+    <meta name="description" content="NÖTSTALLER AUTOS & KFZ-Teile – Ihr Partner für Gebrauchtwagen, Reifen, Felgen und KFZ-Ersatzteile in Kaltenberg.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { gold: '#D4AF37', 'gold-light': '#e8cc6e', 'gold-dark': '#b8962e' },
+                    fontFamily: { inter: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .nav-scrolled { background: rgba(255,255,255,0.97); box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card-hover:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+        .gold-line { width: 48px; height: 3px; background: #D4AF37; border-radius: 2px; }
+        .hero-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            position: relative; overflow: hidden;
+        }
+        .hero-bg::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(212,175,55,0.08) 0%, transparent 60%),
+                        radial-gradient(circle at 20% 80%, rgba(212,175,55,0.05) 0%, transparent 50%);
+        }
+        .vehicle-img { background: linear-gradient(135deg, #e2e8f0, #cbd5e1); }
+        @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+        .animate-on-scroll { opacity: 0; }
+        .animate-on-scroll.visible { animation: fadeUp 0.7s ease forwards; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <a href="#" class="flex-shrink-0">
+                    <img src="storiesdown.co_notstaller_reifen.felgen.webp" alt="Nötstaller Logo" class="h-10 md:h-14 w-auto rounded-lg">
+                </a>
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#leistungen" class="text-sm font-medium text-slate-600 hover:text-gold transition-colors duration-300 tracking-wide uppercase">Leistungen</a>
+                    <a href="#fahrzeugmarkt" class="text-sm font-medium text-slate-600 hover:text-gold transition-colors duration-300 tracking-wide uppercase">Fahrzeugmarkt</a>
+                    <a href="#kontakt" class="text-sm font-medium text-slate-600 hover:text-gold transition-colors duration-300 tracking-wide uppercase">Kontakt</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition" aria-label="Menü öffnen">
+                    <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-slate-100">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#leistungen" class="block text-sm font-medium text-slate-600 hover:text-gold transition-colors uppercase tracking-wide mobile-link">Leistungen</a>
+                <a href="#fahrzeugmarkt" class="block text-sm font-medium text-slate-600 hover:text-gold transition-colors uppercase tracking-wide mobile-link">Fahrzeugmarkt</a>
+                <a href="#kontakt" class="block text-sm font-medium text-slate-600 hover:text-gold transition-colors uppercase tracking-wide mobile-link">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-[85vh] md:min-h-screen flex items-center relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10 w-full">
+            <div class="max-w-3xl">
+                <div class="gold-line mb-6"></div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight mb-6">
+                    Premium Autos, Reifen & <span class="text-gold">KFZ-Teile</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-xl leading-relaxed font-light">
+                    Ihr vertrauensvoller Partner für Gebrauchtwagen, hochwertige Reifen, Felgen und KFZ-Ersatzteile in Kaltenberg.
+                </p>
+                <a href="#fahrzeugmarkt" class="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-slate-900 font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-gold/20 text-sm uppercase tracking-wider">
+                    Zum Fahrzeugmarkt
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                </a>
+            </div>
+        </div>
+        <!-- Decorative element -->
+        <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent"></div>
+    </section>
+
+    <!-- Leistungen -->
+    <section id="leistungen" class="py-20 md:py-28 bg-slate-50 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <div class="gold-line mx-auto mb-4"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Unsere Leistungen</h2>
+                <p class="mt-4 text-slate-500 max-w-lg mx-auto">Qualität und Zuverlässigkeit – bei allem, was wir tun.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="card-hover bg-white rounded-2xl p-8 border border-slate-100 animate-on-scroll">
+                    <div class="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center mb-6"><svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 17h.01M16 17h.01M3 11l1.5-5.25A2 2 0 016.43 4h11.14a2 2 0 011.93 1.75L21 11M3 11v6a1 1 0 001 1h1a2 2 0 104 0h6a2 2 0 104 0h1a1 1 0 001-1v-6M3 11h18"/></svg></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Gebrauchtwagen</h3>
+                    <p class="text-slate-500 leading-relaxed text-sm">Geprüfte Gebrauchtwagen in Top-Zustand. Wir bieten eine handverlesene Auswahl an Fahrzeugen zu fairen Preisen – transparent und zuverlässig.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="card-hover bg-white rounded-2xl p-8 border border-slate-100 animate-on-scroll" style="animation-delay:0.15s">
+                    <div class="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center mb-6"><svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke-width="1.5"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Reifen & Felgen</h3>
+                    <p class="text-slate-500 leading-relaxed text-sm">Sommer- und Winterreifen sowie Alufelgen aller gängigen Marken. Beratung, Montage und faire Preise – alles aus einer Hand.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="card-hover bg-white rounded-2xl p-8 border border-slate-100 animate-on-scroll" style="animation-delay:0.3s">
+                    <div class="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center mb-6"><svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/></svg></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">KFZ-Ersatzteile</h3>
+                    <p class="text-slate-500 leading-relaxed text-sm">Original- und Nachbau-Ersatzteile für alle gängigen Fahrzeugmarken. Schnelle Verfügbarkeit und kompetente Beratung garantiert.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fahrzeugmarkt -->
+    <section id="fahrzeugmarkt" class="py-20 md:py-28 bg-white scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <div class="gold-line mx-auto mb-4"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Fahrzeugmarkt</h2>
+                <p class="mt-4 text-slate-500 max-w-lg mx-auto">Entdecken Sie unsere aktuellen Fahrzeugangebote.</p>
+            </div>
+            <!-- VEHICLES-START -->
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <!-- Vehicle 1: VW Multivan -->
+                <div class="card-hover bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 animate-on-scroll">
+                    <div class="vehicle-img h-48 flex items-center justify-center relative">
+                        <svg class="w-16 h-16 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8 17a2 2 0 11-4 0 2 2 0 014 0zM20 17a2 2 0 11-4 0 2 2 0 014 0zM2 11l1-4h5l2 4M2 11h14m-14 0v5a1 1 0 001 1h1m14-6V7a2 2 0 00-2-2h-3l-2 4m5 2v5a1 1 0 01-1 1h-1"/></svg>
+                        <span class="absolute top-3 right-3 bg-gold text-slate-900 text-xs font-bold px-3 py-1 rounded-full">204 PS</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3">VW Multivan Edition 2,0 TDI 4Motion DSG</h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-200/80 text-slate-600 px-3 py-1 rounded-full font-medium">EZ 2017</span>
+                            <span class="text-xs bg-slate-200/80 text-slate-600 px-3 py-1 rounded-full font-medium">161.546 km</span>
+                            <span class="text-xs bg-slate-200/80 text-slate-600 px-3 py-1 rounded-full font-medium">Diesel</span>
+                            <span class="text-xs bg-slate-200/80 text-slate-600 px-3 py-1 rounded-full font-medium">Automatik</span>
+                        </div>
+                        <p class="text-2xl font-bold text-gold mb-4">€ 37.900</p>
+                        <a href="https://www.willhaben.at/iad/haendler/noetstaller-autos-kfz-ersatzteile/auto?orgId=1004316" target="_blank" rel="noopener" class="block text-center bg-slate-900 hover:bg-gold text-white hover:text-slate-900 font-semibold py-3 rounded-lg transition-all duration-300 text-sm uppercase tracking-wide">Details auf Willhaben</a>
+                    </div>
+                </div>
+                <!-- Vehicle 2: VW Passat Variant -->
+                <div class="card-hover bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 animate-on-scroll" style="animation-delay:0.15s">
+                    <div class="vehicle-img h-48 flex items-center justify-center relative">
+                        <svg class="w-16 h-16 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8 17a2 2 0 11-4 0 2 2 0 014 0zM20 17a2 2 0 11-4 0 2 2 0 014 0zM2 11l2-5h7l2 5M2 11h17m-17 0v5a1 1 0 001 1h1m15-6h1a2 2 0 012 2v3a1 1 0 01-1 1h-1"/></svg>
+                        <span class="absolute top-3 right-3 bg-gold text-slate-900 text-xs font-bold px-3 py-1 rounded-full">150 PS</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3">VW Passat Variant Business 2,0 SCR TDI DSG</h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-200/80 text-slate-600 px-3 py-1 rounded-full font-medium">EZ 2020</span>
+                            <span class="text-xs bg-slate-200/80 text-slate-600 px-3 py-1 rounded-full font-medium">108.100 km</span>
+                            <span class="text-xs bg-slate-200/80 text-slate-600 px-3 py-1 rounded-full font-medium">Diesel</span>
+                            <span class="text-xs bg-slate-200/80 text-slate-600 px-3 py-1 rounded-full font-medium">Automatik</span>
+                        </div>
+                        <p class="text-2xl font-bold text-gold mb-4">€ 18.000</p>
+                        <a href="https://www.willhaben.at/iad/haendler/noetstaller-autos-kfz-ersatzteile/auto?orgId=1004316" target="_blank" rel="noopener" class="block text-center bg-slate-900 hover:bg-gold text-white hover:text-slate-900 font-semibold py-3 rounded-lg transition-all duration-300 text-sm uppercase tracking-wide">Details auf Willhaben</a>
+                    </div>
+                </div>
+                <!-- Vehicle 3: Seat Tarraco -->
+                <div class="card-hover bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 animate-on-scroll" style="animation-delay:0.3s">
+                    <div class="vehicle-img h-48 flex items-center justify-center relative">
+                        <svg class="w-16 h-16 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8 17a2 2 0 11-4 0 2 2 0 014 0zM20 17a2 2 0 11-4 0 2 2 0 014 0zM2 12l3-6h6l3 6M2 12h18m-18 0v4a1 1 0 001 1h1m16-5a2 2 0 012 2v2a1 1 0 01-1 1h-1"/></svg>
+                        <span class="absolute top-3 right-3 bg-gold text-slate-900 text-xs font-bold px-3 py-1 rounded-full">150 PS</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3">Seat Tarraco 2,0 TDI Xcellence DSG 4Drive</h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-200/80 text-slate-600 px-3 py-1 rounded-full font-medium">EZ 2019</span>
+                            <span class="text-xs bg-slate-200/80 text-slate-600 px-3 py-1 rounded-full font-medium">69.690 km</span>
+                            <span class="text-xs bg-slate-200/80 text-slate-600 px-3 py-1 rounded-full font-medium">Diesel</span>
+                            <span class="text-xs bg-slate-200/80 text-slate-600 px-3 py-1 rounded-full font-medium">Automatik</span>
+                        </div>
+                        <p class="text-2xl font-bold text-gold mb-4">€ 29.900</p>
+                        <a href="https://www.willhaben.at/iad/haendler/noetstaller-autos-kfz-ersatzteile/auto?orgId=1004316" target="_blank" rel="noopener" class="block text-center bg-slate-900 hover:bg-gold text-white hover:text-slate-900 font-semibold py-3 rounded-lg transition-all duration-300 text-sm uppercase tracking-wide">Details auf Willhaben</a>
+                    </div>
+                </div>
+            </div>
+            <!-- VEHICLES-END -->
+            <div class="text-center animate-on-scroll">
+                <a href="https://www.willhaben.at/iad/haendler/noetstaller-autos-kfz-ersatzteile/auto?orgId=1004316" target="_blank" rel="noopener" class="inline-flex items-center gap-3 bg-gold hover:bg-gold-dark text-slate-900 font-semibold px-10 py-4 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-gold/20 text-sm uppercase tracking-wider">
+                    Gesamten Bestand auf Willhaben öffnen
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt" class="py-20 md:py-28 bg-slate-50 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <div class="gold-line mx-auto mb-4"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Kontakt & Standort</h2>
+                <p class="mt-4 text-slate-500 max-w-lg mx-auto">Wir freuen uns auf Ihre Anfrage.</p>
+            </div>
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white rounded-2xl p-8 md:p-10 border border-slate-100 shadow-sm animate-on-scroll">
+                    <div class="space-y-6">
+                        <!-- Standort -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-11 h-11 bg-gold/10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-1">Standort</p>
+                                <a href="https://share.google/7O28TJ9FEVvgT4CYz" target="_blank" rel="noopener" class="text-slate-600 hover:text-gold transition-colors duration-300">Kaltenberg</a>
+                            </div>
+                        </div>
+                        <hr class="border-slate-100">
+                        <!-- Instagram -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-11 h-11 bg-gold/10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-1">Instagram</p>
+                                <a href="https://www.instagram.com/notstaller_reifen.felgen.teile/" target="_blank" rel="noopener" class="text-slate-600 hover:text-gold transition-colors duration-300">@notstaller_reifen.felgen.teile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="gold-line mx-auto mb-6"></div>
+            <p class="text-sm font-medium tracking-wide">NÖTSTALLER AUTOS & KFZ-TEILE &mdash; Seit 2023</p>
+            <p class="text-xs text-slate-500 mt-2">&copy; 2026 Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky nav background
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('nav-scrolled', window.scrollY > 40);
+            nav.classList.toggle('bg-transparent', window.scrollY <= 40);
+        });
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => menu.classList.add('hidden')));
+        // Scroll animations
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.animate-on-scroll').forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>

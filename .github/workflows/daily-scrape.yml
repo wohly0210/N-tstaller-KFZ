@@ -1,0 +1,65 @@
+name: Update Willhaben Vehicles
+
+on:
+  schedule:
+    # Runs daily at 22:00 UTC = 00:00 CET (Mitternacht österreichische Zeit)
+    - cron: '0 22 * * *'
+  workflow_dispatch: # Manuell auslösbar über GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  scrape-and-update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🎭 Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: 🚗 Scrape Willhaben & update HTML
+        run: npm run scrape
+
+      - name: 📊 Show extracted data
+        run: |
+          echo "=== Extracted Vehicle Data ==="
+          cat data/vehicles.json || echo "No data file found"
+          echo ""
+          echo "=== HTML Diff ==="
+          git diff index.html | head -80 || echo "No changes"
+
+      - name: 🚀 Commit & push changes
+        run: |
+          git config user.name "Willhaben Auto-Sync"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html data/vehicles.json
+          if git diff --staged --quiet; then
+            echo "ℹ️ No changes detected – vehicles are up to date"
+          else
+            git commit -m "🚗 Auto-Update: Willhaben Fahrzeuge aktualisiert ($(date +%d.%m.%Y))"
+            git push
+            echo "✅ Changes pushed – Vercel will auto-deploy"
+          fi
+
+      - name: 📸 Upload debug artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-scraper
+          path: |
+            data/debug-screenshot.png
+            data/debug-page.html
+          retention-days: 7
