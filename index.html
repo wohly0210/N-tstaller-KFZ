@@ -3,8 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NÖTSTALLER AUTOS & KFZ-Teile | Premium Autos, Reifen & Ersatzteile</title>
-    <meta name="description" content="NÖTSTALLER AUTOS & KFZ-Teile – Ihr Partner für Gebrauchtwagen, Reifen, Felgen und KFZ-Ersatzteile in Kaltenberg.">
+    <title>NÖTSTALLER AUTOS &amp; KFZ-Teile | Gebrauchtwagen, Reifen &amp; Ersatzteile – Kaltenberg</title>
+    <meta name="description" content="NÖTSTALLER AUTOS &amp; KFZ-Teile – Ihr Partner für geprüfte Gebrauchtwagen, Reifen, Felgen und KFZ-Ersatzteile in Kaltenberg. Jetzt Angebote entdecken.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Alexander Nötstaller">
+    <link rel="canonical" href="https://notstaller.vercel.app/">
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://notstaller.vercel.app/">
+    <meta property="og:title" content="NÖTSTALLER AUTOS &amp; KFZ-Teile | Kaltenberg">
+    <meta property="og:description" content="Geprüfte Gebrauchtwagen, Reifen, Felgen und KFZ-Ersatzteile in Kaltenberg.">
+    <meta property="og:image" content="https://notstaller.vercel.app/storiesdown.co_notstaller_reifen.felgen.webp">
+    <meta property="og:locale" content="de_AT">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NÖTSTALLER AUTOS &amp; KFZ-Teile">
+    <meta name="twitter:description" content="Ihr Partner für Gebrauchtwagen, Reifen und KFZ-Ersatzteile in Kaltenberg.">
+    <!-- Schema.org AutoDealer structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoDealer",
+      "name": "NÖTSTALLER AUTOS & KFZ-TEILE",
+      "description": "Geprüfte Gebrauchtwagen, Reifen, Felgen und KFZ-Ersatzteile in Kaltenberg.",
+      "url": "https://notstaller.vercel.app/",
+      "telephone": "+436641046002",
+      "email": "noetstaller.reifen@gmx.at",
+      "image": "https://notstaller.vercel.app/storiesdown.co_notstaller_reifen.felgen.webp",
+      "address": { "@type": "PostalAddress", "addressLocality": "Kaltenberg", "addressCountry": "AT" },
+      "geo": { "@type": "GeoCoordinates", "latitude": 48.4521216, "longitude": 14.7373464 },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "07:30", "closes": "12:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "13:00", "closes": "17:00" }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/notstaller_reifen.felgen.teile/",
+        "https://www.willhaben.at/iad/haendler/noetstaller-autos-kfz-ersatzteile/auto?orgId=1004316"
+      ]
+    }
+    </script>
+    <!-- Preload LCP hero image -->
+    <link rel="preload" as="image" href="kellen-riggin-XPEH2-JV_bk-unsplash.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -22,6 +60,9 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         .nav-scrolled { background: rgba(255,255,255,0.97); box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+        .nav-scrolled .nav-link { color: #475569 !important; }
+        .nav-scrolled .nav-link:hover { color: #D4AF37 !important; }
+        .nav-scrolled .mobile-btn-icon { color: #334155 !important; }
         .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .card-hover:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
         .gold-line { width: 48px; height: 3px; background: #D4AF37; border-radius: 2px; }
@@ -34,10 +75,50 @@
             background: radial-gradient(circle at 70% 30%, rgba(212,175,55,0.08) 0%, transparent 60%),
                         radial-gradient(circle at 20% 80%, rgba(212,175,55,0.05) 0%, transparent 50%);
         }
+        .hero-photo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 70%;
+            height: 100%;
+            object-fit: cover;
+            object-position: right center;
+            -webkit-mask-image:
+                linear-gradient(to left, black 0%, black 40%, transparent 100%),
+                linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
+            -webkit-mask-composite: destination-in;
+            mask-image:
+                linear-gradient(to left, black 0%, black 40%, transparent 100%),
+                linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
+            mask-composite: intersect;
+            pointer-events: none;
+        }
+        @media (max-width: 767px) {
+            .hero-photo {
+                top: auto;
+                bottom: 0;
+                width: 100%;
+                height: 55%;
+                object-fit: cover;
+                object-position: center 40%;
+                -webkit-mask-image: linear-gradient(to top, black 0%, black 30%, transparent 90%);
+                mask-image: linear-gradient(to top, black 0%, black 30%, transparent 90%);
+            }
+        }
+        /* Performance: reduce layout shifts */
+        html { scroll-behavior: smooth; }
         .vehicle-img { background: linear-gradient(135deg, #e2e8f0, #cbd5e1); }
         @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
         .animate-on-scroll { opacity: 0; }
         .animate-on-scroll.visible { animation: fadeUp 0.7s ease forwards; }
+        /* Fix animation-delay for staggered cards */
+        .animate-on-scroll.visible.delay-1 { animation-delay: 0.15s; }
+        .animate-on-scroll.visible.delay-2 { animation-delay: 0.30s; }
+        /* Mobile touch targets */
+        @media (max-width: 767px) {
+            .nav-link, .mobile-link { min-height: 44px; display: flex; align-items: center; }
+            #mobile-btn { min-width: 44px; min-height: 44px; }
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased">
@@ -46,18 +127,18 @@
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 md:h-20">
-                <a href="#" class="flex-shrink-0">
-                    <img src="storiesdown.co_notstaller_reifen.felgen.webp" alt="Nötstaller Logo" class="h-10 md:h-14 w-auto rounded-lg">
+                <a href="#" class="flex-shrink-0" aria-label="Nötstaller – zur Startseite">
+                    <img src="storiesdown.co_notstaller_reifen.felgen.webp" alt="NÖTSTALLER AUTOS & KFZ-TEILE Logo" class="h-10 md:h-14 w-auto rounded-lg" width="56" height="56">
                 </a>
                 <!-- Desktop Nav -->
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="#leistungen" class="text-sm font-medium text-slate-600 hover:text-gold transition-colors duration-300 tracking-wide uppercase">Leistungen</a>
-                    <a href="#fahrzeugmarkt" class="text-sm font-medium text-slate-600 hover:text-gold transition-colors duration-300 tracking-wide uppercase">Fahrzeugmarkt</a>
-                    <a href="#kontakt" class="text-sm font-medium text-slate-600 hover:text-gold transition-colors duration-300 tracking-wide uppercase">Kontakt</a>
+                    <a href="#leistungen" class="nav-link text-sm font-medium text-white hover:text-gold transition-colors duration-300 tracking-wide uppercase" style="text-shadow: 0 1px 3px rgba(0,0,0,0.4)">Leistungen</a>
+                    <a href="#fahrzeugmarkt" class="nav-link text-sm font-medium text-white hover:text-gold transition-colors duration-300 tracking-wide uppercase" style="text-shadow: 0 1px 3px rgba(0,0,0,0.4)">Fahrzeugmarkt</a>
+                    <a href="#kontakt" class="nav-link text-sm font-medium text-white hover:text-gold transition-colors duration-300 tracking-wide uppercase" style="text-shadow: 0 1px 3px rgba(0,0,0,0.4)">Kontakt</a>
                 </div>
                 <!-- Mobile Menu Button -->
-                <button id="mobile-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition" aria-label="Menü öffnen">
-                    <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <button id="mobile-btn" class="md:hidden p-2 rounded-lg hover:bg-white/10 transition" aria-label="Menü öffnen">
+                    <svg class="mobile-btn-icon w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </div>
         </div>
@@ -73,11 +154,13 @@
 
     <!-- Hero Section -->
     <section class="hero-bg min-h-[85vh] md:min-h-screen flex items-center relative">
+        <!-- Hero background photo with fade -->
+        <img src="kellen-riggin-XPEH2-JV_bk-unsplash.jpg" alt="" class="hero-photo" aria-hidden="true" fetchpriority="high" decoding="async">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10 w-full">
             <div class="max-w-3xl">
                 <div class="gold-line mb-6"></div>
                 <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight mb-6">
-                    Premium Autos, Reifen & <span class="text-gold">KFZ-Teile</span>
+                    Autos,<br>Reifen &amp; <span class="text-gold">KFZ-Teile</span>
                 </h1>
                 <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-xl leading-relaxed font-light">
                     Ihr vertrauensvoller Partner für Gebrauchtwagen, hochwertige Reifen, Felgen und KFZ-Ersatzteile in Kaltenberg.
@@ -89,11 +172,11 @@
             </div>
         </div>
         <!-- Decorative element -->
-        <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent z-10"></div>
     </section>
 
     <!-- Leistungen -->
-    <section id="leistungen" class="py-20 md:py-28 bg-slate-50 scroll-mt-20">
+    <section id="leistungen" class="py-20 md:py-28 bg-slate-50 scroll-mt-16 md:scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 animate-on-scroll">
                 <div class="gold-line mx-auto mb-4"></div>
@@ -108,13 +191,13 @@
                     <p class="text-slate-500 leading-relaxed text-sm">Geprüfte Gebrauchtwagen in Top-Zustand. Wir bieten eine handverlesene Auswahl an Fahrzeugen zu fairen Preisen – transparent und zuverlässig.</p>
                 </div>
                 <!-- Card 2 -->
-                <div class="card-hover bg-white rounded-2xl p-8 border border-slate-100 animate-on-scroll" style="animation-delay:0.15s">
+                <div class="card-hover bg-white rounded-2xl p-8 border border-slate-100 animate-on-scroll delay-1">
                     <div class="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center mb-6"><svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke-width="1.5"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg></div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">Reifen & Felgen</h3>
                     <p class="text-slate-500 leading-relaxed text-sm">Sommer- und Winterreifen sowie Alufelgen aller gängigen Marken. Beratung, Montage und faire Preise – alles aus einer Hand.</p>
                 </div>
                 <!-- Card 3 -->
-                <div class="card-hover bg-white rounded-2xl p-8 border border-slate-100 animate-on-scroll" style="animation-delay:0.3s">
+                <div class="card-hover bg-white rounded-2xl p-8 border border-slate-100 animate-on-scroll delay-2">
                     <div class="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center mb-6"><svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/></svg></div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">KFZ-Ersatzteile</h3>
                     <p class="text-slate-500 leading-relaxed text-sm">Original- und Nachbau-Ersatzteile für alle gängigen Fahrzeugmarken. Schnelle Verfügbarkeit und kompetente Beratung garantiert.</p>
@@ -124,7 +207,7 @@
     </section>
 
     <!-- Fahrzeugmarkt -->
-    <section id="fahrzeugmarkt" class="py-20 md:py-28 bg-white scroll-mt-20">
+    <section id="fahrzeugmarkt" class="py-20 md:py-28 bg-white scroll-mt-16 md:scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 animate-on-scroll">
                 <div class="gold-line mx-auto mb-4"></div>
@@ -136,7 +219,7 @@
                 <!-- Vehicle 1: Seat Tarraco 2,0 TDI Xcellence DSG 4Drive -->
                 <div class="card-hover bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 animate-on-scroll">
                     <div class="aspect-[4/3] overflow-hidden relative bg-gradient-to-br from-slate-100 to-slate-200">
-                        <img src="assets/vehicles/car-1.jpg?v=1782460891592" alt="Seat Tarraco 2,0 TDI Xcellence DSG 4Drive" class="w-full h-full object-cover object-[center_60%]" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">
+                        <img src="assets/vehicles/car-1.jpg?v=1782460891592" alt="Seat Tarraco 2,0 TDI Xcellence DSG 4Drive" class="w-full h-full object-cover object-[center_60%]" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'">
                         <div class="absolute inset-0 flex items-center justify-center -z-10">
                             <svg class="w-16 h-16 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8 17a2 2 0 11-4 0 2 2 0 014 0zM20 17a2 2 0 11-4 0 2 2 0 014 0zM2 11l2-5h7l2 5M2 11h17m-17 0v5a1 1 0 001 1h1m15-6h1a2 2 0 012 2v3a1 1 0 01-1 1h-1"/></svg>
                         </div>
@@ -155,9 +238,9 @@
                     </div>
                 </div>
                 <!-- Vehicle 2: VW Passat Variant Business 2,0 SCR TDI DSG -->
-                <div class="card-hover bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 animate-on-scroll" style="animation-delay:0.15s">
+                <div class="card-hover bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 animate-on-scroll delay-1">
                     <div class="aspect-[4/3] overflow-hidden relative bg-gradient-to-br from-slate-100 to-slate-200">
-                        <img src="assets/vehicles/car-2.jpg?v=1782460891592" alt="VW Passat Variant Business 2,0 SCR TDI DSG" class="w-full h-full object-cover object-[center_60%]" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">
+                        <img src="assets/vehicles/car-2.jpg?v=1782460891592" alt="VW Passat Variant Business 2,0 SCR TDI DSG" class="w-full h-full object-cover object-[center_60%]" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'">
                         <div class="absolute inset-0 flex items-center justify-center -z-10">
                             <svg class="w-16 h-16 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8 17a2 2 0 11-4 0 2 2 0 014 0zM20 17a2 2 0 11-4 0 2 2 0 014 0zM2 11l2-5h7l2 5M2 11h17m-17 0v5a1 1 0 001 1h1m15-6h1a2 2 0 012 2v3a1 1 0 01-1 1h-1"/></svg>
                         </div>
@@ -176,9 +259,9 @@
                     </div>
                 </div>
                 <!-- Vehicle 3: VW Multivan Edition 2,0 TDI 4Motion DSG (VERKAUFT) -->
-                <div class="card-hover bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 animate-on-scroll" style="animation-delay:0.3s">
+                <div class="card-hover bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 animate-on-scroll delay-2">
                     <div class="aspect-[4/3] overflow-hidden relative bg-gradient-to-br from-slate-100 to-slate-200">
-                        <img src="assets/vehicles/car-3.jpg?v=1782460891592" alt="VW Multivan Edition 2,0 TDI 4Motion DSG (VERKAUFT)" class="w-full h-full object-cover object-[center_60%]" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">
+                        <img src="assets/vehicles/car-3.jpg?v=1782460891592" alt="VW Multivan Edition 2,0 TDI 4Motion DSG" class="w-full h-full object-cover object-[center_60%]" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'">
                         <div class="absolute inset-0 flex items-center justify-center -z-10">
                             <svg class="w-16 h-16 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8 17a2 2 0 11-4 0 2 2 0 014 0zM20 17a2 2 0 11-4 0 2 2 0 014 0zM2 11l2-5h7l2 5M2 11h17m-17 0v5a1 1 0 001 1h1m15-6h1a2 2 0 012 2v3a1 1 0 01-1 1h-1"/></svg>
                         </div>
@@ -208,42 +291,71 @@
     </section>
 
     <!-- Kontakt -->
-    <section id="kontakt" class="py-20 md:py-28 bg-slate-50 scroll-mt-20">
+    <section id="kontakt" class="py-20 md:py-28 bg-white scroll-mt-16 md:scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 animate-on-scroll">
                 <div class="gold-line mx-auto mb-4"></div>
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Kontakt & Standort</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Kontakt &amp; Standort</h2>
                 <p class="mt-4 text-slate-500 max-w-lg mx-auto">Wir freuen uns auf Ihre Anfrage.</p>
             </div>
-            <div class="max-w-2xl mx-auto">
-                <div class="bg-white rounded-2xl p-8 md:p-10 border border-slate-100 shadow-sm animate-on-scroll">
-                    <div class="space-y-6">
-                        <!-- Standort -->
-                        <div class="flex items-start gap-4">
-                            <div class="w-11 h-11 bg-gold/10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden animate-on-scroll">
+                <div class="grid md:grid-cols-2">
+                    <!-- Linke Spalte: Kontaktinfos -->
+                    <div class="p-8 md:p-10 flex flex-col justify-between gap-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900 mb-1">Kontaktieren Sie uns</h3>
+                            <div class="gold-line mb-6"></div>
+
+                            <p class="text-lg font-bold text-slate-900 mb-5">Alexander Nötstaller</p>
+
+                            <div class="space-y-3 text-slate-600">
+                                <p>
+                                    <span class="font-medium text-slate-700">Tel.: </span>
+                                    <a href="tel:+436641046002" class="hover:text-gold transition-colors duration-300">0664 1046002</a>
+                                </p>
+                                <p>
+                                    <span class="font-medium text-slate-700">E-Mail: </span>
+                                    <a href="mailto:noetstaller.reifen@gmx.at" class="hover:text-gold transition-colors duration-300">noetstaller.reifen@gmx.at</a>
+                                </p>
+                                <p>
+                                    <span class="font-medium text-slate-700">Instagram: </span>
+                                    <a href="https://www.instagram.com/notstaller_reifen.felgen.teile/" target="_blank" rel="noopener" class="hover:text-gold transition-colors duration-300">@notstaller_reifen.felgen.teile</a>
+                                </p>
                             </div>
-                            <div>
-                                <p class="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-1">Standort</p>
-                                <a href="https://share.google/7O28TJ9FEVvgT4CYz" target="_blank" rel="noopener" class="text-slate-600 hover:text-gold transition-colors duration-300">Kaltenberg</a>
+
+                            <div class="mt-6">
+                                <p class="font-bold text-slate-800 mb-1">Öffnungszeiten:</p>
+                                <p class="text-slate-600">Mo–Sa 07:30 – 12:00 &amp; 13:00 – 17:00 Uhr</p>
                             </div>
                         </div>
-                        <hr class="border-slate-100">
-                        <!-- Instagram -->
-                        <div class="flex items-start gap-4">
-                            <div class="w-11 h-11 bg-gold/10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                            </div>
-                            <div>
-                                <p class="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-1">Instagram</p>
-                                <a href="https://www.instagram.com/notstaller_reifen.felgen.teile/" target="_blank" rel="noopener" class="text-slate-600 hover:text-gold transition-colors duration-300">@notstaller_reifen.felgen.teile</a>
-                            </div>
+
+                        <!-- WhatsApp Button -->
+                        <a href="https://wa.me/436641046002" target="_blank" rel="noopener"
+                           class="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-7 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/25 text-sm w-fit">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            WhatsApp schreiben
+                        </a>
+                    </div>
+
+                    <!-- Rechte Spalte: Google Maps + Route planen -->
+                    <div class="flex flex-col p-4 md:p-6 gap-3">
+                        <div class="flex-1 min-h-[280px] rounded-2xl overflow-hidden">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2649.0!2d14.7347715!3d48.4521216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47730700798675eb%3A0x2cf21b81ef82bfaf!2sN%C3%96TSTALLER%20AUTOS%20%26%20KFZ-TEILE!5e0!3m2!1sde!2sat!4v1"
+                                width="100%" height="100%" style="border:0; min-height:280px; display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
                         </div>
+                        <a href="https://www.google.com/maps/place/N%C3%96TSTALLER+AUTOS+%26+KFZ-TEILE/@48.4521216,14.7347715,17z/data=!3m1!4b1!4m6!3m5!1s0x47730700798675eb:0x2cf21b81ef82bfaf!8m2!3d48.4521216!4d14.7373464!16s%2Fg%2F11w1wfj4dy?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D"
+                           target="_blank" rel="noopener"
+                           class="block text-center bg-slate-900 hover:bg-gold text-white hover:text-slate-900 font-semibold py-4 rounded-2xl transition-all duration-300 text-sm uppercase tracking-wider">
+                            Route planen
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Footer -->
     <footer class="bg-slate-900 text-slate-400 py-10">
