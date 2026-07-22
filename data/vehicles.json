@@ -1,17 +1,17 @@
 {
-  "scraped_at": "2026-07-21T23:03:18.022Z",
+  "scraped_at": "2026-07-22T23:10:23.458Z",
   "dealer_url": "https://www.willhaben.at/iad/haendler/noetstaller-autos-kfz-ersatzteile/auto?orgId=1004316",
   "vehicles": [
     {
-      "title": "VW Passat Variant Business 2,0 SCR TDI DSG",
-      "price": "€ 18.000",
-      "year": "2020",
-      "mileage": "108 100 km",
+      "title": "Audi A6 RS6 Avant 4,0 TFSI COD tiptronic",
+      "price": "€ 50.200",
+      "year": "2016",
+      "mileage": "165 900 km",
       "fuel": "Diesel",
       "transmission": "Automatik",
-      "power": "150 PS",
-      "link": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/vw-passat-variant-business-2-0-scr-tdi-dsg-1195366454/",
-      "image": "https://cache.willhaben.at/mmo/4/119/536/6454_-2067669293_hoved.jpg",
+      "power": "560 PS",
+      "link": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/audi-a6-rs6-avant-4-0-tfsi-cod-tiptronic-806684596/",
+      "image": "https://cache.willhaben.at/mmo/6/806/684/596_-472095333_hoved.jpg",
       "localImage": "assets/vehicles/car-1.jpg"
     },
     {
@@ -27,15 +27,15 @@
       "localImage": "assets/vehicles/car-2.jpg"
     },
     {
-      "title": "VW Multivan Edition 2,0 TDI 4Motion DSG (VERKAUFT)",
-      "price": "€ 37.900",
-      "year": "2017",
-      "mileage": "161 546 km",
+      "title": "VW Passat Variant Business 2,0 SCR TDI DSG",
+      "price": "€ 18.000",
+      "year": "2020",
+      "mileage": "108 100 km",
       "fuel": "Diesel",
       "transmission": "Automatik",
-      "power": "204 PS",
-      "link": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/vw-multivan-edition-2-0-tdi-4motion-dsg-verkauft-1751330063/",
-      "image": "https://cache.willhaben.at/mmo/3/175/133/0063_-1393368705_hoved.jpg",
+      "power": "150 PS",
+      "link": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/vw-passat-variant-business-2-0-scr-tdi-dsg-1195366454/",
+      "image": "https://cache.willhaben.at/mmo/4/119/536/6454_-2067669293_hoved.jpg",
       "localImage": "assets/vehicles/car-3.jpg"
     }
   ]
