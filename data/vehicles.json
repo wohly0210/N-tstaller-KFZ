@@ -1,17 +1,17 @@
 {
-  "scraped_at": "2026-07-26T23:03:47.821Z",
+  "scraped_at": "2026-07-27T23:10:16.576Z",
   "dealer_url": "https://www.willhaben.at/iad/haendler/noetstaller-autos-kfz-ersatzteile/auto?orgId=1004316",
   "vehicles": [
     {
       "title": "VW Passat Variant Business 2,0 SCR TDI DSG",
-      "price": "€ 18.000",
+      "price": "€ 17.900",
       "year": "2020",
       "mileage": "108 100 km",
       "fuel": "Diesel",
       "transmission": "Automatik",
       "power": "150 PS",
       "link": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/vw-passat-variant-business-2-0-scr-tdi-dsg-1195366454/",
-      "image": "https://cache.willhaben.at/mmo/4/119/536/6454_-2067669293_hoved.jpg",
+      "image": "https://cache.willhaben.at/mmo/4/119/536/6454_-1651776795_hoved.jpg",
       "localImage": "assets/vehicles/car-1.jpg"
     },
     {
