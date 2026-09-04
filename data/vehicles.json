@@ -1,10 +1,10 @@
 {
-  "scraped_at": "2026-09-02T23:57:32.293Z",
+  "scraped_at": "2026-09-04T00:00:50.728Z",
   "dealer_url": "https://www.willhaben.at/iad/haendler/noetstaller-autos-kfz-ersatzteile/auto?orgId=1004316",
   "vehicles": [
     {
       "title": "VW Passat Variant Business 2,0 SCR TDI DSG",
-      "price": "€ 17.900",
+      "price": "€ 17.500",
       "year": "2020",
       "mileage": "108 100 km",
       "fuel": "Diesel",
@@ -28,7 +28,7 @@
     },
     {
       "title": "Seat Tarraco 2,0 TDI Xcellence DSG 4Drive",
-      "price": "€ 27.700",
+      "price": "€ 27.500",
       "year": "2019",
       "mileage": "69 690 km",
       "fuel": "Diesel",
