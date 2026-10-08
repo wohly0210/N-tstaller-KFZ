@@ -1,19 +1,7 @@
 {
-  "scraped_at": "2026-10-07T01:21:27.398Z",
+  "scraped_at": "2026-10-08T01:42:01.445Z",
   "dealer_url": "https://www.willhaben.at/iad/haendler/noetstaller-autos-kfz-ersatzteile/auto?orgId=1004316",
   "vehicles": [
-    {
-      "title": "Seat Tarraco 2,0 TDI Xcellence DSG 4Drive ( VERKAUFT )",
-      "price": "€ 27.500",
-      "year": "2019",
-      "mileage": "69 690 km",
-      "fuel": "Diesel",
-      "transmission": "Automatik",
-      "power": "150 PS",
-      "link": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/seat-tarraco-2-0-tdi-xcellence-dsg-4drive-verkauft-1901866594/",
-      "image": "https://cache.willhaben.at/mmo/4/190/186/6594_1275493368_hoved.jpg",
-      "localImage": "assets/vehicles/car-1.jpg"
-    },
     {
       "title": "VW Passat Variant Business 2,0 SCR TDI DSG",
       "price": "€ 17.500",
@@ -24,7 +12,7 @@
       "power": "150 PS",
       "link": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/vw-passat-variant-business-2-0-scr-tdi-dsg-1195366454/",
       "image": "https://cache.willhaben.at/mmo/4/119/536/6454_-1651776795_hoved.jpg",
-      "localImage": "assets/vehicles/car-2.jpg"
+      "localImage": "assets/vehicles/car-1.jpg"
     },
     {
       "title": "Audi A6 RS6 Avant 4,0 TFSI COD tiptronic",
@@ -36,6 +24,18 @@
       "power": "560 PS",
       "link": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/audi-a6-rs6-avant-4-0-tfsi-cod-tiptronic-806684596/",
       "image": "https://cache.willhaben.at/mmo/6/806/684/596_-472095333_hoved.jpg",
+      "localImage": "assets/vehicles/car-2.jpg"
+    },
+    {
+      "title": "Seat Tarraco 2,0 TDI Xcellence DSG 4Drive ( VERKAUFT )",
+      "price": "€ 27.500",
+      "year": "2019",
+      "mileage": "69 690 km",
+      "fuel": "Diesel",
+      "transmission": "Automatik",
+      "power": "150 PS",
+      "link": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/seat-tarraco-2-0-tdi-xcellence-dsg-4drive-verkauft-1901866594/",
+      "image": "https://cache.willhaben.at/mmo/4/190/186/6594_1275493368_hoved.jpg",
       "localImage": "assets/vehicles/car-3.jpg"
     }
   ]
